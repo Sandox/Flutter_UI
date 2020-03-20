@@ -15,9 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'List of Categories'),
-      routes: {
-        Category.routeName: (ctx) => Category()
-      },
+      routes: {Category.routeName: (ctx) => Category()},
     );
   }
 }
@@ -33,7 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   getCategories() async {
     setState(() {
       widget.isLoading = true;
@@ -76,16 +73,26 @@ class _MyHomePageState extends State<MyHomePage> {
                         return ListTile(
                           title: GestureDetector(
                             child: Text(
-                              item,
+                              item.toString().substring(0, 1).toUpperCase() +
+                                  item
+                                      .toString()
+                                      .substring(1, item.toString().length),
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20),
                             ),
                             onTap: () => _onViewDetails(widget.items[index]),
                           ),
                           subtitle: GestureDetector(
-                              child: Text('Click to view more'),
-                          onTap: () => _onViewDetails(widget.items[index]),),
+                            child: Text(
+                              'Click here to view a random joke from Chuck Norris',
+                              style: TextStyle(
+                                  backgroundColor: Colors.lightBlue,
+                                  color: Colors.white),
+                            ),
+                            onTap: () => _onViewDetails(widget.items[index]),
+                          ),
                         );
                       },
                     ),
@@ -98,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _onViewDetails(item) {
     print(item);
-    Navigator.of(context).pushNamed(Category.routeName,
-        arguments: {'item': item});
+    Navigator.of(context)
+        .pushNamed(Category.routeName, arguments: {'item': item});
   }
 }

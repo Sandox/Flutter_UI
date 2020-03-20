@@ -6,13 +6,13 @@ class Category extends StatefulWidget {
   String item;
   String randomJoke;
 
-
   @override
   _CategoryState createState() => _CategoryState();
 }
 
 class _CategoryState extends State<Category> {
   bool isLoading = true;
+
   getRandomJoke(String category) async {
     var response = await http.get(
         'http://10.0.2.2:8080/api/category/get_joke_by_category/$category');
@@ -38,15 +38,20 @@ class _CategoryState extends State<Category> {
         title: Text(widget.item),
       ),
       body: Container(
+        color: Color.fromRGBO(39, 46, 164, 0.76),
         child: Center(
-          child: Card(
-            borderOnForeground: true,
-            elevation: 12,
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            child: isLoading
-                ? CircularProgressIndicator()
-                : Text(widget.randomJoke, style: TextStyle(fontSize: 40),),
-          ),
+          child: isLoading
+              ? CircularProgressIndicator()
+              : Card(
+            color: Color.fromRGBO(39, 46, 164, 0.60),
+                  borderOnForeground: true,
+                  elevation: 12,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Text(
+                    widget.randomJoke,
+                    style: TextStyle(fontSize: 40,color: Colors.white),
+                  ),
+                ),
         ),
       ),
     );
