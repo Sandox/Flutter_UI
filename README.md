@@ -1,19 +1,15 @@
 # client_flutter_app
 
-A new Flutter project.
+A UI Flutter project for a Spring boot Application Server that hits at the chucknorris.io API.
 
 ## Getting Started
+* Flutter for UI
+* Dart for writing the Logic
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Dart is AOT (Ahead Of Time) compiled to fast, predictable, native code, which allows almost all of Flutter to be written in Dart.
+This not only makes Flutter fast, virtually everything (including all the widgets) can be customized.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Dart has features that are familiar to users of both static and dynamic languages like Java.
+The Client Server Spring boot Application Controller Class passes the API and Services to the Flutter UI and the Logic to manipulate and construct the data being passed using Dart
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-Flutter for UI
-Dart for writing the Logic
